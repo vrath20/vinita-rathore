@@ -16,7 +16,6 @@ class PearsonUsers extends Component {
 	}
 
 	componentDidMount(){
-		console.log('in');
 		this.props.addMoreUser();
 	}
 	
