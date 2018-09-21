@@ -1,4 +1,4 @@
-const initialState = 
+const initialState =
 [
   {
     id: 4,
@@ -24,10 +24,10 @@ const initialState =
 ];
 
 function checkUniqueValues(state, data){
-  const initialUsers = state;   
+  const initialUsers = state;
   if(initialUsers) {
     var uniqueId = initialUsers.map(hero => hero.id);
-    uniqueId = [...new Set(uniqueId)];      
+    uniqueId = [...new Set(uniqueId)];
     if(data.data){
       let newUsers = data.data;
         var uniqueUsers =  newUsers.filter((user) => {
@@ -39,9 +39,9 @@ function checkUniqueValues(state, data){
   }
 }
 
-function deleteUser(id,state){
+export const  deleteUser = (id,state)=>{
 
-  var deletedUserList =  state && state.filter((user) => {        
+  var deletedUserList =  state && state.filter((user) => {
       return (user.id !== id);
     });
     return deletedUserList ;
@@ -49,7 +49,7 @@ function deleteUser(id,state){
 
 const List = (state= initialState, {type, payLoad}) => {
 	switch(type){
-		case 'ADD_USER' : 
+		case 'ADD_USER' :
       const userData = checkUniqueValues(state,payLoad);
 		  return userData;
 
@@ -60,7 +60,7 @@ const List = (state= initialState, {type, payLoad}) => {
 		default :
 		  return state;
 	}
-	
+
 }
 
 

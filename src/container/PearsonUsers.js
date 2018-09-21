@@ -15,7 +15,11 @@ class PearsonUsers extends Component {
 		this.props.delUser(id);
 	}
 
-
+	componentDidMount(){
+		console.log('in');
+		this.props.addMoreUser();
+	}
+	
 	render(){
 
 		const { usersList } = this.props;
@@ -25,7 +29,6 @@ class PearsonUsers extends Component {
 			<div className="pearson-users">
 		        <h1>Pearson User Management</h1>
 		        <List user={usersList}  onUserDelete={this.deleteUser}/>
-		        <button onClick={() => this.props.addMoreUser()}>Get more users</button>
 		    </div>
 
 		)

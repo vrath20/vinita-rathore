@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import  List  from "../reducer/UserListReducer";
+import  List,{deleteUser}  from "../reducer/UserListReducer";
 
 
 describe("reducer case", () => {
@@ -39,7 +39,47 @@ describe("reducer case", () => {
     expect(List(state=expectedResult, {})).toEqual(expectedResult);
   });
 
+  it('DELETE_USER case', () => {
+    const expectedResult =  [
+      {
+        id: 4,
+        first_name: "Eve",
+        last_name: "Holt",
+        avatar:
+          "https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg"
+      },
+      {
+        id: 5,
+        first_name: "Charles",
+        last_name: "Morris",
+        avatar:
+          "https://s3.amazonaws.com/uifaces/faces/twitter/stephenmoon/128.jpg"
+      }
+    ];
 
+    expect(List(state=state, {type:'DELETE_USER',payLoad:6})).toEqual(expectedResult);
+  });
+
+  it('checking delete user method', () => {
+    const expectedResult =  [
+      {
+        id: 4,
+        first_name: "Eve",
+        last_name: "Holt",
+        avatar:
+          "https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg"
+      },
+      {
+        id: 5,
+        first_name: "Charles",
+        last_name: "Morris",
+        avatar:
+          "https://s3.amazonaws.com/uifaces/faces/twitter/stephenmoon/128.jpg"
+      }
+    ];
+
+    expect(deleteUser( 6,state=state)).toEqual(expectedResult);
+  });
 
 
 })
